@@ -1,0 +1,37 @@
+{
+  "name": "stories",
+  "version": "0.0.0",
+  "description": "A place to design your own CYOA stories",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.4.4",
+    "ez-ctrl": "0.0.5"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-nodemon": "~0.1.2",
+    "grunt-mocha-test": "~0.7.0",
+    "should": "~2.1.0",
+    "karma-script-launcher": "~0.1.0",
+    "karma-chrome-launcher": "~0.1.1",
+    "karma-firefox-launcher": "~0.1.1",
+    "karma-html2js-preprocessor": "~0.1.0",
+    "karma-jasmine": "~0.1.3",
+    "karma-coffee-preprocessor": "~0.1.1",
+    "requirejs": "~2.1.9",
+    "karma-requirejs": "~0.2.0",
+    "karma-phantomjs-launcher": "~0.1.1",
+    "karma": "~0.10.6",
+    "grunt-karma": "~0.6.2",
+    "mocha": "~1.14.0",
+    "karma-mocha": "~0.1.1"
+  }
+}

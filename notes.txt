@@ -1,0 +1,44 @@
+What I need from a build tool:
+	- I need it to watch all my files
+	- When a coffeescript file changes, I want to:
+		- Run the corresponding test
+		- Generate the javascript file
+		- Reload the browser page if I'm on the frontend
+	- When a .less file changes, I want to:
+		- Generate the corresponding .css file
+
+Here's where significant files are:
+	- /server.coffee - main server file for development. Run the server with coffee server.coffee
+	- /server.js - main server for deployment. Run the server with server.js
+	- /server/server.coffee - main file for server configuration
+	- /server/controllers/*.coffee - controllers file
+	- /server/models/*.coffee - and data models for the controller
+	- /server/**/*.spec.coffee - test files that correspond with similarly named files.
+	- /build/**/*.js - Compiled javascript files from the /server/ directory. Used for deployment
+	- /frontend/*.coffee - Script files that run on the browser
+	- /frontend/*.less - Less files that compile into css
+	- /frontend/*.html - partial files
+	- /public/index.html - the main html file.
+	- /public/js/**/*.js - Compiled javascript from the /frontend/*.coffee and possibly /isomorphic
+	- /public/js/lib/* - Necessary files extracted from /bower_components
+	- /public/css/style.css - Compiled css files
+	- /isomorphic/*.coffee - files that can run on both the browser and the server? (I'm not sure how that would work)
+	- /tests/*.spec.coffee - Any e2e tests
+
+Requirements:
+	- Use bower (bower_components)
+	- Use npm
+	- Compile the partial files into the index.html, so we load them on initial load.
+	- No javascript files in either /server/ or /frontend/
+	- When a coffeescript file changes, it should run the corresponding test and generate the corresponding javascript file
+	- When a /frontend/ changes, then it should reload the browser (see live reload)
+	- When a /server/ changes, then it should refresh the server
+	- All the tests should run before a git commit is allowed and before a git push is allowed (don't worry about the push for now)
+
+Suggested tools:
+	- bower
+	- npm
+	- karma
+	- build tool (there are a few. the most common is gruntjs)
+	- mocha (test framework)
+
