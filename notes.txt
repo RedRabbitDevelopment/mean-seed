@@ -39,6 +39,7 @@ Suggested tools:
 	- bower
 	- npm
 	- karma
+	- requirejs
 	- build tool (there are a few. the most common is gruntjs)
 	- mocha (test framework)
 
