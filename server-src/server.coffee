@@ -1,6 +1,8 @@
 
 express = require 'express'
 app = express()
+
+console.log 'one plus one is five'
 console.log 'booya'
 
 module.exports =
