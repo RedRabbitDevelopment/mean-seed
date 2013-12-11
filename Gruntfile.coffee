@@ -7,7 +7,7 @@ module.exports = (grunt)->
 			serverTest: 'server-test/'
 			frontend: 'public-src/'
 			frontendBuild: 'public/'
-			frontendTest: 'frontend-test/'
+			frontendTest: 'public-test/'
 			frontendCompiled: 'public/js/app.js'
 		coffee:
 			'compile-server':
