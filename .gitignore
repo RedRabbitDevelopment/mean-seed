@@ -1,6 +1,5 @@
-/node_modules
-/bower_components
-/bin
-/public/js
-/public/css
+node_modules
+bower_components
+server
+public
 *.swp

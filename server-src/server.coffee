@@ -1,9 +1,11 @@
-
 express = require 'express'
 app = express()
+routes = require './routes'
 
-console.log 'one plus one is five'
-console.log 'booya'
+app.get "/", routes.index
+
+app.listen 3000
+console.log "listening on port 3000"
 
 module.exports =
 	run: (callback)->
