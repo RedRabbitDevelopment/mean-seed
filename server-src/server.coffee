@@ -4,12 +4,11 @@ routes = require './routes'
 
 app.use express.static(__dirname + "/../public")
 app.set "view engine", "ejs"
-app.engine 'html', require('ejs').renderFile
 
 app.get "/", routes.index
 
 app.set 'port', 3000
-app.set 'views', '../public'
+app.set 'views', __dirname + '/../public-src'
 
 module.exports =
 	run: (callback)->

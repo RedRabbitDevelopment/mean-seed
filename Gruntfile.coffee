@@ -37,8 +37,8 @@ module.exports = (grunt)->
 		less:
 			compile:
 				files:
-					'<%= files.frontendBuild %>css/app.css':
-						'<%= files.frontend %>css/app.less'
+					'<%= files.frontendBuild %>css/main.css':
+						'<%= files.frontend %>css/main.less'
 
 		copy:
 			main:
