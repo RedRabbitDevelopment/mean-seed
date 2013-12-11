@@ -3,10 +3,10 @@ module.exports = (grunt)->
 		pkg: grunt.file.readJSON 'package.json'
 		files:
 			server: 'server-src/'
-			serverBin: 'server/'
+			serverBuild: 'server/'
 			serverTest: 'server-test/'
 			frontend: 'public-src/'
-			frontendBin: 'public/js/'
+			frontendBuild: 'public/'
 			frontendTest: 'frontend-test/'
 			frontendCompiled: 'public/js/app.js'
 		coffee:
@@ -17,7 +17,7 @@ module.exports = (grunt)->
 					expand: true
 					cwd: '<%= files.server %>'
 					src: ['**/*.coffee']
-					dest: '<%= files.serverBin %>'
+					dest: '<%= files.serverBuild %>'
 					ext: '.js'
 				]
 			'compile-frontend':
@@ -25,7 +25,7 @@ module.exports = (grunt)->
 					expand: true
 					cwd: '<%= files.frontend %>'
 					src: ['**/*.coffee']
-					dest: '<%= files.frontendBin %>'
+					dest: '<%= files.frontendBuild %>'
 					ext: '.js'
 				]
 		uglify:
