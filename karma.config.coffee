@@ -14,9 +14,8 @@ module.exports = (config)->
 
 		# list of files / patterns to load in the browser
 		files: [
-			'frontend/main.coffee',
 			{pattern: 'server/**/*.coffee', included: false},
-			{pattern: 'frontend/**/*.coffee', included: false}
+			{pattern: 'public/**/*.coffee', included: false}
 		]
 
 
@@ -32,7 +31,7 @@ module.exports = (config)->
 
 
 		# web server port
-		port: 9876
+		port: 3000
 
 
 		# enable / disable colors in the output (reporters and logs)
