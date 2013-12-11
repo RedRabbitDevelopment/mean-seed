@@ -28,6 +28,12 @@ module.exports = (grunt)->
 					dest: '<%= files.frontendBuild %>'
 					ext: '.js'
 				]
+
+		less:
+			compile:
+				files:
+					'<%= files.frontendBuild %>css/app.css':
+						'<%= files.frontend %>css/app.less'
 		uglify:
 			options:
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -75,8 +81,14 @@ module.exports = (grunt)->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
+	grunt.loadNpmTasks 'grunt-contrib-less'
 	grunt.loadNpmTasks 'grunt-mocha-test'
 	grunt.loadNpmTasks 'grunt-newer'
 	grunt.loadNpmTasks 'grunt-karma'
 
-	grunt.registerTask 'default', 'newer:coffee newer:uglify mochaTest'.split ' '
+	grunt.registerTask 'default', [
+		'newer:coffee',
+		'newer:uglify',
+		'newer:less',
+		'mochaTest'
+		]
