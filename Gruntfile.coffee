@@ -61,46 +61,17 @@ module.exports = (grunt)->
 				files: ['<%= files.frontend %>/**/*.coffee']
 				tasks: [
 					'newer:coffee:compile-frontend',
-					'mochaTest',
+					'mochaTest:frontend',
 					'karma'
 					]
-				options:
-					nospawn: true
 
 			'coffee-server':
 				files: ['<%= files.server %>/**/*.coffee']
 				tasks: [
 					'newer:coffee:compile-server',
-					'mochaTest'
+					'mochaTest:server'
 					]
-				options:
-					nospawn: true
-	
-	# grunt.event.on 'watch', (action, filepath, target)->
-	# 	console.log 'action:', action, 'filepath:', filepath, 'target:', target
-	# 	# edit configs so that mocha tasks only run on the changed file
-	# 	if target is 'coffee-frontend' or target is 'coffee-server'
-	# 		type = target.replace 'coffee-', ''
-	# 		grunt.config 'mochaTest.test.src',
-	# 			filepath.replace grunt.config("files.#{type}")
-	# 				, grunt.config("files.#{type}Test")
 
-
-	# 	# edit configs so that certain tasks only run on the changed file
-	# 	# if target is 'coffee-frontend' or target is 'coffee-server'
-	# 	# 	type = target.replace 'coffee-', ''
-
-	# 		# coffee configs
-	# 		# conf = grunt.config "coffee.compile-#{type}"
-	# 		# newfile = filepath.replace(grunt.config("files.#{type}"), '')
-	# 		# conf.files[0].src = newfile
-	# 		# grunt.config "coffee.compile-#{type}", conf
-
-	# 		# mocha configs
-	# 	# 	grunt.config 'mochaTest.test.src',
-	# 	# 		filepath.replace grunt.config("files.#{type}")
-	# 	# 			, grunt.config("files.#{type}Test")
-	
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
