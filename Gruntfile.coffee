@@ -7,7 +7,7 @@ module.exports = (grunt)->
 			serverTest: 'server-test/'
 			frontend: 'public-src/'
 			frontendBuild: 'public/'
-			frontendTest: 'public-test/'
+			frontendTest: 'frontend-test/'
 			frontendCompiled: 'public/js/app.js'
 		coffee:
 			'compile-server':
@@ -37,8 +37,8 @@ module.exports = (grunt)->
 		less:
 			compile:
 				files:
-					'<%= files.frontendBuild %>css/main.css':
-						'<%= files.frontend %>css/main.less'
+					'<%= files.frontendBuild %>css/app.css':
+						'<%= files.frontend %>css/app.less'
 
 		copy:
 			main:
