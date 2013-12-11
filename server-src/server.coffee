@@ -4,8 +4,7 @@ routes = require './routes'
 
 app.get "/", routes.index
 
-app.listen 3000
-console.log "listening on port 3000"
+app.set 'port', 3000
 
 module.exports =
 	run: (callback)->

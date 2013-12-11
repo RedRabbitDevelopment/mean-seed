@@ -13,13 +13,18 @@ module.exports = (grunt)->
 			'compile-server':
 				options:
 					bare: true
-				files: [
+				files: [{
 					expand: true
 					cwd: '<%= files.server %>'
 					src: ['**/*.coffee']
 					dest: '<%= files.serverBuild %>'
 					ext: '.js'
-				]
+					},{
+					expand: true
+					src: ['server.coffee']
+					dest: ''
+					ext: '.js'
+				}]
 			'compile-frontend':
 				files: [
 					expand: true
