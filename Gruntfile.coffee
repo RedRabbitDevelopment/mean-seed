@@ -34,14 +34,24 @@ module.exports = (grunt)->
 				files:
 					'<%= files.frontendBuild %>css/app.css':
 						'<%= files.frontend %>css/app.less'
+
+		copy:
+			main:
+				files: [
+					expand: true
+					cwd: '<%= files.frontend %>'
+					src: ['**/*.html']
+					dest: '<%= files.frontendBuild %>'
+					]
+
 		uglify:
 			options:
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			build:
 				files:
 					'<%= files.frontendCompiled %>': [
-						'public/js/**/*.js',
-						'!public/js/lib/**/*.js',
+						'<%= files.frontendBuild %>js/**/*.js',
+						'!<%= files.frontendBuild %>js/lib/**/*.js',
 						'!<%= files.frontendCompiled %>'
 						]
 
@@ -67,6 +77,9 @@ module.exports = (grunt)->
 				files: ['<%= files.frontend %>/**/*.coffee']
 				tasks: [
 					'newer:coffee:compile-frontend',
+					'newer:copy',
+					'newer:less',
+					'newer:uglify',
 					'mochaTest:frontend',
 					'karma'
 					]
@@ -82,13 +95,16 @@ module.exports = (grunt)->
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-less'
+	grunt.loadNpmTasks 'grunt-contrib-copy'
 	grunt.loadNpmTasks 'grunt-mocha-test'
 	grunt.loadNpmTasks 'grunt-newer'
 	grunt.loadNpmTasks 'grunt-karma'
 
 	grunt.registerTask 'default', [
 		'newer:coffee',
-		'newer:uglify',
 		'newer:less',
-		'mochaTest'
+		'newer:copy',
+		'newer:uglify',
+		'mochaTest',
+		'karma'
 		]
