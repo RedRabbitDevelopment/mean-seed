@@ -1,51 +1,44 @@
-# Karma configuration
-# Generated on Wed Nov 27 2013 12:32:10 GMT-0700 (MST)
-
-module.exports = (config)->
+module.exports = (config) ->
 	config.set
+		# hostname used when capturing browsers
+		hostname: 'localhost'
 
-		# base path, that will be used to resolve files and exclude
-		basePath: ''
+		# base path, used to resolve file includes and excludes
+		basePath: './'
 
+		# Watch files? No, we use Grunt for this instead
+		autoWatch: false
+
+		# web server port
+		port: 3000
 
 		# frameworks to use
 		frameworks: ['mocha', 'requirejs']
 
-
 		# list of files / patterns to load in the browser
 		files: [
-			{pattern: 'server/**/*.coffee', included: false},
-			{pattern: 'public/**/*.coffee', included: false}
+			'public/**/*.js'
+			'public-test/**/*.coffee'
 		]
-
 
 		# list of files to exclude
-		exclude: [
-			
-		]
-
+		exclude: [ ]
 
 		# test results reporter to use
 		# possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
 		reporters: ['progress']
 
-
-		# web server port
-		port: 3000
-
-
 		# enable / disable colors in the output (reporters and logs)
 		colors: true
 
-
 		# level of logging
-		# possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-		logLevel: config.LOG_INFO
-
-
-		# enable / disable watching file and executing tests whenever any file changes
-		autoWatch: false
-
+		# possible values: 
+		#	config.LOG_DISABLE
+		#	config.LOG_ERROR
+		#	config.LOG_WARN
+		#	config.LOG_INFO
+		#	config.LOG_DEBUG
+		logLevel: config.LOG_DEBUG
 
 		# Start these browsers, currently available:
 		# - Chrome
@@ -57,10 +50,8 @@ module.exports = (config)->
 		# - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
 		browsers: ['Chrome', 'Firefox', 'PhantomJS']
 
-
 		# If browser does not capture in given timeout [ms], kill it
 		captureTimeout: 6000,
-
 
 		# Continuous Integration mode
 		# if true, it capture browsers, run tests and exit

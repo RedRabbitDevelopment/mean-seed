@@ -77,6 +77,7 @@ module.exports = (grunt)->
 			unit:
 				configFile: 'karma.config.coffee'
 				background: true
+
 		watch:
 			'coffee-frontend':
 				files: ['<%= files.frontend %>/**/*.coffee']
